@@ -1,0 +1,24 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+}
+
+.container {
+    width: 300px;
+}
+
+.city {
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+.find {
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 20px;
+    color:white;
+    background-color: black;
+}
