@@ -1,6 +1,6 @@
 import {Map, Placemark, YMaps} from "react-yandex-maps";
 import style from './maps.module.css'
-import {useEffect, useLayoutEffect, useRef, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import {useDispatch} from "react-redux";
 import {getWeatherSagaCreator} from "../../redux/weather/actions";
 
@@ -12,14 +12,14 @@ export const Maps = () => {
 	const dispatch = useDispatch()
 	const map = useRef()
 
-	useEffect(()=>{
-				map.current?.events.add('click', function (e) {
-				let coords = e.get('coords');
-					setPlacemarkCoords([coords[0].toPrecision(6), coords[1].toPrecision(6)])
-				dispatch(getWeatherSagaCreator(undefined, coords))
-			})
-	},[initMap])
-
+	useEffect(() => {
+		map.current?.events.add('click', function (e) {
+			let coords = e.get('coords')
+			setPlacemarkCoords(coords)
+			setMapCenter(coords)
+			dispatch(getWeatherSagaCreator(undefined, coords))
+		})
+	}, [initMap])
 
 	return (
 		<YMaps>
@@ -29,7 +29,7 @@ export const Maps = () => {
 					width={500}
 					height={500}
 					instanceRef={map}
-					onLoad={()=>setInitMap(true)}
+					onLoad={() => setInitMap(true)}
 				>
 					<Placemark geometry={placemarkCoords}/>
 				</Map>
