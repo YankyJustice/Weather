@@ -1,4 +1,4 @@
-import {ERROR, INITAPP, LOADING, SETWEATHER} from './weather/actions';
+import {ERROR, INIT_APP, LOADING, SET_WEATHER} from './actions';
 
 const initialState = {
 	loading: false,
@@ -11,9 +11,9 @@ const initialState = {
 }
 
 
-export const weatherReducer = (state = initialState, action) => {
+export const weather = (state = initialState, action) => {
 	switch (action.type) {
-		case SETWEATHER:
+		case SET_WEATHER:
 			return {
 				...state,
 				...action.payload
@@ -28,7 +28,7 @@ export const weatherReducer = (state = initialState, action) => {
 				...state,
 				error: action.payload,
 			}
-		case INITAPP:
+		case INIT_APP:
 			return {
 				...state,
 				initApp: action.payload,

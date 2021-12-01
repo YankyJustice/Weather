@@ -1,7 +1,7 @@
-import clouds from '../assets/clouds.jpg';
-import snow from '../assets/snow.png';
-import clear from '../assets/clear.jpg';
-import rain from '../assets/rain.jpeg';
+import clouds from '../assets/image/clouds.jpg';
+import snow from '../assets/image/snow.png';
+import clear from '../assets/image/clear.jpg';
+import rain from '../assets/image/rain.jpeg';
 
 export const weatherImgGen = (weather) => {
 	switch (weather) {

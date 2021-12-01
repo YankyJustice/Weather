@@ -1,7 +1,7 @@
 import {call, put, takeEvery,} from 'redux-saga/effects';
 
-import {getWeather} from './service';
-import {errorAC, GETWEATHER, initAppAC, loadingAC, setWeatherAC} from './actions';
+import {getWeather} from './services';
+import {errorAC, GET_WEATHER, initAppAC, loadingAC, setWeatherAC} from './actions';
 
 function* weatherWorker(action) {
 	try {
@@ -12,11 +12,11 @@ function* weatherWorker(action) {
 		yield put(errorAC(''))
 		yield put(initAppAC(true))
 	} catch (e) {
-		yield put(errorAC('Введите другой город'))
+		yield put(errorAC('Change you city name'))
 		yield put(loadingAC(false))
 	}
 }
 
 export function* weatherWatcher() {
-	yield takeEvery(GETWEATHER, weatherWorker)
+	yield takeEvery(GET_WEATHER, weatherWorker)
 }

@@ -1,19 +1,19 @@
-export const GETWEATHER = 'GET-WEATHER'
-export const SETWEATHER = 'SET-WEATHER'
+export const GET_WEATHER = 'GET_WEATHER'
+export const SET_WEATHER = 'SET_WEATHER'
 export const LOADING = 'LOADING'
 export const ERROR = 'ERROR'
-export const INITAPP = 'INITAPP'
+export const INIT_APP = 'INIT_APP'
 
 export const getWeatherSagaCreator = (payload) => {
 	return {
-		type: GETWEATHER,
+		type: GET_WEATHER,
 		payload
 	}
 }
 
 export const setWeatherAC = (payload) => {
 	return {
-		type: SETWEATHER,
+		type: SET_WEATHER,
 		payload
 	}
 }
@@ -34,7 +34,7 @@ export const errorAC = (payload) => {
 
 export const initAppAC = (payload) => {
 	return {
-		type: INITAPP,
+		type: INIT_APP,
 		payload,
 	}
 }
