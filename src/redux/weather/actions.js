@@ -4,10 +4,11 @@ export const LOADING = 'LOADING'
 export const ERROR = 'ERROR'
 export const INIT_APP = 'INIT_APP'
 
-export const getWeatherSagaCreator = (payload) => {
+export const getWeatherSagaCreator = (city = undefined, coords = undefined) => {
 	return {
 		type: GET_WEATHER,
-		payload
+		city,
+		coords
 	}
 }
 

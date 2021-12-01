@@ -1,6 +1,6 @@
 .weatherIMG {
     width: 100px;
-    height: 70px;
+    height: 100px;
 }
 .data {
     display: flex;
@@ -16,7 +16,8 @@
 }
 
 .container {
-    width: 300px;
+    width: 350px;
+    height:170px;
 }
 
 .notInitApp {

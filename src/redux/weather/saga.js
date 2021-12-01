@@ -6,7 +6,7 @@ import {errorAC, GET_WEATHER, initAppAC, loadingAC, setWeatherAC} from './action
 function* weatherWorker(action) {
 	try {
 		yield put(loadingAC(true))
-		const weatherData = yield call(() => getWeather(action.payload).then(res => res.data))
+		const weatherData = yield call(() => getWeather(action.coords, action.city).then(res => res.data))
 		yield put(setWeatherAC(weatherData))
 		yield put(loadingAC(false))
 		yield put(errorAC(''))

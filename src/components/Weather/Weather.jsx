@@ -1,11 +1,13 @@
-import React from "react";
+import React from 'react';
 import {useSelector} from 'react-redux';
 
-import {PreloaderHOC} from '../../hoc/preloader';
 import {weatherImgGen} from '../../services';
+import {PreloaderHOC} from "../../hoc/preloader";
 
 import style from './weather.module.css'
-import {getApp, getCurrentTemp, getInfo, getName} from "../../redux/weather/selectors";
+import {getApp, getCurrentTemp, getInfo, getName} from '../../redux/weather/selectors';
+
+
 
 const Weather = () => {
   const currentTemp = useSelector(getCurrentTemp)
@@ -43,6 +45,5 @@ const Weather = () => {
     </div>
   )
 }
-
 
 export const WeatherWithPreloader = PreloaderHOC(Weather)
