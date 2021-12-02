@@ -1,10 +1,14 @@
-import {Map, Placemark, YMaps} from "react-yandex-maps";
+import {Map, Placemark, YMaps} from 'react-yandex-maps';
+import {useEffect, useRef, useState} from 'react';
+import {useDispatch} from 'react-redux';
+
+import {getWeatherSagaCreator} from '../../redux/weather/actions';
+
 import style from './maps.module.css'
-import {useEffect, useRef, useState} from "react";
-import {useDispatch} from "react-redux";
-import {getWeatherSagaCreator} from "../../redux/weather/actions";
+
 
 export const Maps = () => {
+
 	const [placemarkCoords, setPlacemarkCoords] = useState()
 	const [initMap, setInitMap] = useState(false)
 	const [mapCenter, setMapCenter] = useState([55.75, 37.57])
@@ -13,13 +17,13 @@ export const Maps = () => {
 	const map = useRef()
 
 	useEffect(() => {
-		map.current?.events.add('click', function (e) {
+		map.current?.events.add('click', (e) => {
 			let coords = e.get('coords')
 			setPlacemarkCoords(coords)
 			setMapCenter(coords)
 			dispatch(getWeatherSagaCreator(undefined, coords))
 		})
-	}, [initMap])
+	}, [dispatch, initMap])
 
 	return (
 		<YMaps>
